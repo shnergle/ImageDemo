@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface SHSecondViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UILabel *sizeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic) int index;
 
 @end

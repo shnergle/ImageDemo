@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@interface SHFirstViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@interface SHFirstViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *heightField;
+@property (weak, nonatomic) IBOutlet UITextField *widthField;
+@property (weak, nonatomic) IBOutlet UITextField *qualityField;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

@@ -6,10 +6,11 @@
 //  Copyright (c) 2013 Shnergle. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface SHAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) UIImage *resizedImage;
+@property (nonatomic) NSInteger quality;
 
 @end

@@ -7,23 +7,33 @@
 //
 
 #import "SHSecondViewController.h"
-
-@interface SHSecondViewController ()
-
-@end
+#import "SHAppDelegate.h"
+#import "UIImage+WebP.h"
 
 @implementation SHSecondViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    SHAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSData *image;
+    switch (self.index) {
+        case 1:
+            image = UIImageJPEGRepresentation(appDelegate.resizedImage, appDelegate.quality);
+            self.imageView.image = [UIImage imageWithData:image];
+            break;
+        case 2:
+            image = UIImagePNGRepresentation(appDelegate.resizedImage);
+            self.imageView.image = [UIImage imageWithData:image];
+            break;
+        case 3:
+            image = [appDelegate.resizedImage dataWebPLossless];
+            self.imageView.image = [UIImage imageWithWebPData:image];
+            break;
+        case 4:
+            image = [appDelegate.resizedImage dataWebPWithQuality:appDelegate.quality];
+            self.imageView.image = [UIImage imageWithWebPData:image];
+    }
+    self.sizeLabel.text = [NSString stringWithFormat:@"%d kB", [image length] / 1024];
 }
 
 @end
